@@ -75,6 +75,11 @@
         border-bottom: 2px solid #56433D;
         border-right: 2px solid #56433D;
     }
+    @media all and (max-width: 500px) {
+        .table td {
+            padding: 1px;
+        }
+    }
     .table td:first-child {
         border-left: 2px solid #56433D;
     }

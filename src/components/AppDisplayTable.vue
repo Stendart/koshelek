@@ -59,12 +59,12 @@ export default {
         height: 70vh;
         overflow: hidden;
     }
-    @media all and (max-width: 430px) {
+    /*@media all and (max-width: 430px) {
         .table-wrapper__column-wrapp {
             display: flex;
             justify-content: space-between;
         }
-    }
+    }*/
     .table-wrapper__column-wrapp:hover {
         margin-right: calc(-1 * (100vw - 100%));
         overflow-y: scroll;
