@@ -38,7 +38,7 @@
         position: relative;
     }
     .table-wrapper__column {
-        width: 48%;
+        max-width: 48%;
     }
     @media all and (max-width: 795px) {
         .table__th:last-child, .table__total {

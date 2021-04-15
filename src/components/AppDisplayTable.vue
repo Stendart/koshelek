@@ -41,9 +41,6 @@ export default {
 
     this.ws.onmessage = (msg) => {
       const updateData = JSON.parse(msg.data)
-      // console.log('Its work', updateData)
-      // console.log('[ ', updateData.U,'===', updateData.u, ']')
-      // console.log('this.depth?.lastUpdateId', this.depth?.lastUpdateId)
       if (updateData.U <= this.depth?.lastUpdateId+1 && updateData.u >= this.depth?.lastUpdateId+1) {
         this.depth.asks.shift(updateData.a)
         this.depth.bids.shift(updateData.b)
@@ -61,6 +58,12 @@ export default {
 
         height: 70vh;
         overflow: hidden;
+    }
+    @media all and (max-width: 430px) {
+        .table-wrapper__column-wrapp {
+            display: flex;
+            justify-content: space-between;
+        }
     }
     .table-wrapper__column-wrapp:hover {
         margin-right: calc(-1 * (100vw - 100%));
