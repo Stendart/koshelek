@@ -3,10 +3,10 @@
         <h3>Koshelek</h3>
         <ul class="navbar__menu">
             <li>
-                <router-link to="/">Заявки</router-link>
+                <router-link to="/">Курс</router-link>
             </li>
             <li>
-                <router-link to="/help">Помощь</router-link>
+                <router-link to="/setting">Настройки</router-link>
             </li>
         </ul>
     </nav>

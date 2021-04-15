@@ -56,8 +56,9 @@ export function subscribe(wss, symbol="BNB_BTCB-1DE") {
   }
 }
 
-export function createWsConnection() {
-  const connection = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@depth'); // wss://stream.binance.com:9443
+export function createWsConnection(s = 'btcusdt') {
+  const symbol = s.toLowerCase()
+  const connection = new WebSocket(`wss://stream.binance.com:9443/ws/${symbol}@depth`); // wss://stream.binance.com:9443
 
   connection.onopen = (e) => {
     console.log('connection is opend', e)

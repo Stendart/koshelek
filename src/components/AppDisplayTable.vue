@@ -1,6 +1,6 @@
 <template>
     <div class="table-wrapper">
-        <caption class="table-wrapper__title">Coin list</caption>
+        <caption class="table-wrapper__title">Coin list {{symbol}}</caption>
         <div class="table-wrapper__column-wrapp">
             <tableComponent v-if="depth"
                             :table-head="tableTitle"
@@ -16,7 +16,6 @@
 
 <script>
 import tableComponent from './tableComponent';
-import requests from '../core/sdk/requests';
 import {createWsConnection, subscribe, getDepthOfMarket} from '../core/sdk/requests';
 
 export default {
@@ -25,6 +24,7 @@ export default {
     return {
       depth: null,
       ws: null,
+      symbol: 'BTCUSDT',
       tableTitle: ['Amount', 'Price', 'Total']
     }
   },
@@ -32,8 +32,9 @@ export default {
     tableComponent
   },
   async created() {
-    this.ws = createWsConnection()
-    this.depth = await getDepthOfMarket()
+    this.symbol = this.$store.getters.getCurentSymbol
+    this.ws = createWsConnection(this.symbol ?? '')
+    this.depth = await getDepthOfMarket(this.symbol ?? '')
   },
   mounted() {
     // subscribe(this.ws)
