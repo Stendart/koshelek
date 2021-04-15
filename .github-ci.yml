@@ -1,0 +1,16 @@
+before_script:
+  - node -v
+  - rm -f .npmrc
+  - npm config set strict-ssl false
+  - npm install
+  - npm run build
+
+pages:
+stage: deploy
+script:
+  - cp -r dist/* public
+artifacts:
+paths:
+  - public
+only:
+  - master
