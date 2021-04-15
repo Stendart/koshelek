@@ -57,7 +57,7 @@ export function subscribe(wss, symbol="BNB_BTCB-1DE") {
 }
 
 export function createWsConnection() {
-  const connection = new WebSocket('wss://dex.binance.org/api/ws'); // wss://stream.binance.com:9443
+  const connection = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@depth'); // wss://stream.binance.com:9443
 
   connection.onopen = (e) => {
     console.log('connection is opend', e)
@@ -74,12 +74,10 @@ export function createWsConnection() {
   return connection
 }
 
-export async function getDepthOfMarket (symbol = 'BNBBTC') {
-  console.log('symbol', symbol)
-  const response = await fetch(`https://api.binance.com/api/v3/depth?symbol=${symbol}&limit=1000`)
+export async function getDepthOfMarket (symbol = 'BTCUSDT') {
+  const response = await fetch(`https://api.binance.com/api/v3/depth?symbol=${symbol}&limit=100`)
     .then((data) => data.json())
-
-  console.log('response', response)
+  console.log('===========',response)
   return response
 
 }

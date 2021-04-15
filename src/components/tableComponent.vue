@@ -1,5 +1,5 @@
 <template>
-    <div class="card center">
+    <div class="table-wrapper__column">
         <table class="table">
             <thead class="table__head">
             <tr>
@@ -13,6 +13,7 @@
             <tr v-for="p in dataList" :key="p.myId">
                 <td>{{p[0]}}</td>
                 <td>{{p[1]}}</td>
+                <td class="table__total">{{p[0] * p[1]}}</td>
             </tr>
             </tbody>
         </table>
@@ -32,14 +33,23 @@
 
 <style scoped>
     .table {
-        width: 90%;
+        width: 100%;
         border-collapse: collapse;
+        position: relative;
     }
-
+    .table-wrapper__column {
+        width: 48%;
+    }
+    @media all and (max-width: 795px) {
+        .table__th:last-child, .table__total {
+            display: none;
+        }
+    }
     .table__head {
         border: 2px solid #56433D;
     }
     .table__th {
+        border-top: 2px solid #56433D;
         padding: 10px 20px;
         background: #56433D;
         color: #F9C941;
@@ -47,6 +57,9 @@
         font-size: 0.9em;
 
         cursor: pointer;
+
+        position: sticky;
+        top: 0;
     }
 
     .table__th:last-child {

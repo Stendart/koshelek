@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <AppDisplayTable :table-title="tableTitle"></AppDisplayTable>
+    <AppDisplayTable></AppDisplayTable>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   name: 'Home',
   data() {
     return {
-      tableTitle: ['Amount', 'Price', 'Total']
+
     }
   },
   components: {
